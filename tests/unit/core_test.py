@@ -1,9 +1,4 @@
-import os
-import sys
-
-
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from dupfinder import FileHashInfo, generate_file_hashes, find_duplicate_files
+from dupfinder.core import FileHashInfo, generate_file_hashes, find_duplicate_files
 
 
 def create_test_files_info():
