@@ -1,5 +1,14 @@
+import pytest
+
 from pathlib import Path
 from dupfinder.core import get_absolute_file_paths
+
+
+def test__get_absolute_file_paths__throws_on_bad_path(tmpdir):
+    bad_root_paths = [str(Path(str(tmpdir), 'not/a/path'))]
+
+    with pytest.raises(FileNotFoundError):
+        get_absolute_file_paths(bad_root_paths)
 
 
 def test__get_absolute_file_paths__gets_all_paths(tmpdir):
