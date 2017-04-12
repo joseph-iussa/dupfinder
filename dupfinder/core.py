@@ -26,7 +26,7 @@ def get_absolute_file_paths(root_paths):
 
 def get_file_bytes(path):
     with open(path, 'rb') as file:
-        return file.readall()
+        return file.read()
 
 
 def generate_file_hashes(paths, file_bytes_provider):
