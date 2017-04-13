@@ -51,3 +51,9 @@ def find_duplicate_files(files_info):
 
     duplicates.sort(key=lambda d: d[0])
     return duplicates
+
+
+def run(root_paths):
+    abs_paths = get_absolute_file_paths(root_paths)
+    files_hash_info = generate_file_hashes(abs_paths, get_file_bytes)
+    return find_duplicate_files(files_hash_info)
