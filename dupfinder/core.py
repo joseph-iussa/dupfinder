@@ -8,12 +8,14 @@ from pathlib import Path
 FileHashInfo = namedtuple('FileHashInfo', ['hash', 'path'])
 
 
-def get_absolute_file_paths(root_paths):
+def get_absolute_root_paths(root_paths):
     try:
-        root_paths = [str(Path(path).resolve()) for path in root_paths]
+        return [str(Path(path).resolve()) for path in root_paths]
     except FileNotFoundError:
         raise
 
+
+def get_absolute_file_paths(root_paths):
     abs_paths = set()
 
     for root_path in root_paths:
